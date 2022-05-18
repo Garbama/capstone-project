@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Cameroon Geography</title>
+    <link rel="stylesheet" href="/homepage.css">
+  </head>
+  <body background="background-cameroon.jpeg" style="background-repeat:no-repeat; background-size: cover; background-attachment: fixed">
+    <h1 style="color: white">CAMEROON OVERVIEW</h1>
+    <a href="index.html"></a>
+       <a style="float:right;color:white" href="about.html">About</a>
+       <a href="galery.html"></a>
+       <a style="padding-right: 5px; float:right;color: white" href="Contact.html">Contact</a>
+      </body>
+      <style>
+       #map{
+           height: 400px;
+           width: 85%;
+           margin-left: auto;
+           margin-right: auto;
+           position: relative;
+           top: 80px;
+                   /* height:400px;
+           width:75%;
+           margin-bottom: 10em;
+           margin-left: 20em;
+           margin-top: 0em; */
+       }
+   </style>
+  
+    <style>
+         body {
+  background-color:lightblue;
+}
+
+h1 {
+  color: blue;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+    </style>
+    
+
+  
+        
+    
+    <body>
+        <div id="map"></div>
+    <script>
+        function initMap(){
+            //map options 
+            var options ={
+                zoom:5,
+                //cameroon coordinates
+                center:{lat:6.78739,lng:13.51874}
+            }
+            //new map
+            var map = new google.maps.Map(document.getElementById('map'), options);
+            //add marker 
+            addMarker({coords:{lat:3.8480,lng:11.5021},
+            content:'<h1 style="color: black"><a href="" target="_blank"><button style="background-color:white;border-radius:10px">Yaounde</button></a><h1> <p style="color: black; font-size: 10px" > Yaounde is the political capital.</p>'
+        });
+            addMarker({coords:{lat:4.0511,lng:9.7679},
+            content:'<h1 style="color: black"><a href="" target="_blank"><button style="background-color:white;border-radius:10px">Douala</button></a><h1> <p style="color: black; font-size: 10px" > Douala is the economic capital.</p>'
+        });
+            addMarker({coords:{lat:9.3226,lng:13.3934},
+            content:'<h1 style="color: black"><a href="" target="_blank"><button style="background-color:white;border-radius:10px">Garoua</button></a><h1> <p style="color: black; font-size: 10px" > Garoua is the bigest city of the North.</p>'
+        });
+            addMarker({coords:{lat:2.9406,lng:9.9102},
+            content:'<h1 style="color: black"><a href="" target="_blank"><button style="background-color:white;border-radius:10px">Kribi</button></a><h1>  <p style="color: black; font-size: 10px" > Kribi is the seaside town.</p>'
+        });
+            addMarker({coords:{lat:10.5925,lng:14.3210},
+            content:'<h1 style="color: black"><a href="" target="_blank"><button style="background-color:white;border-radius:10px">Maoura</button></a><h1>  <p style="color: black; font-size: 10px" > Maroua,traditional city in the far north.</p>'      
+        });
+        addMarker({coords:{lat:11.3333,lng:14.6667},
+            content:'<h1 style="color: black"><a href="" target="_blank"><button style="background-color:white;border-radius:10px">Waza National Park</button></a><h1> <p style="color: black; font-size: 10px" > Waza National Park, Safari destination.</p>'      
+        });
+        addMarker({coords:{lat:5.7325,lng:10.9014},
+            content:'<h1 style="color: black"><a href="" target="_blank"><button style="background-color:white;border-radius:10px">Musée De Foumban</button></a><h1> <p style="color: black; font-size: 10px" > Musée De Foumban,jewel of the Bamoun tribe.</p>'      
+        });
+        addMarker({coords:{lat:7.3381,lng:13.5668},
+            content:'<h1 style="color: black"><a href="" target="_blank"><button style="background-color:white;border-radius:10px">Ngoundere</button></a><h1> <p style="color: black; font-size: 10px" > Ngoundere is the water tower of cameroon.</p>'      
+        });
+           function addMarker(props){
+               var marker = new google.maps.Marker({
+                   position:props.coords,
+                   map:map,
+                //    icon:props.icon
+               });
+               //check for customicon
+               if(props.iconImage){
+                   //set icon image
+                   marker.setIcon(props.iconImage);
+               }
+               //check content 
+               if(props.content){
+                   var infoWindow = new google.maps.InfoWindow({
+                       content: props.content
+                   });
+                   marker.addListener('click', function(){
+                       infoWindow.open(map,marker);
+                   });
+               }
+
+           }
+        }
+    </script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script
+</body>
+</html>

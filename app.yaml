@@ -1,0 +1,12 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /
+  static_files: CMRR/index.html
+  upload: CMRR/index.html
+
+- url: /(.*)
+  static_files: CMRR/\1
+  upload: CMRR/(.*)
